@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+
+    
+    
+    function getComputerChoice() {
+      let result = Math.random();
+      if (result <= 0.33) {
+        return "rock";
+      } else if (result >= 0.66) {
+        return "paper"; 
+      } else {
+        return "scissors";
+      }
+    }
+
+    //console.log(getComputerChoice())
+
+    function getHumanChoice() {
+      let validOptions = ["rock", "paper", "scissors"];
+      let choice = prompt("what's your choice: rock, paper or scissors?");
+      if (choice.toLowerCase () == validOptions[0] || choice.toLowerCase () == validOptions[1] || choice.toLowerCase () == validOptions[2]) {
+        return choice.toLowerCase ();
+      } else {
+        alert ("please chose a valid option");
+      }
+      return getHumanChoice();
+    }
+    
+    //console.log(getHumanChoice());
+
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+  
+    function playRound(humanChoice, computerChoice) {
+      if ((humanChoice == "rock" && computerChoice == "scissors") || (humanChoice == "paper" && computerChoice == "rock") || (humanChoice == "scissors" && computerChoice == "paper")) {
+        humanScore++;
+        alert ("You won! " + humanChoice + " beats " + computerChoice);
+      } else if (humanChoice != computerChoice) {
+        computerScore++;
+        alert ("You lose! " + computerChoice + " beats " + humanChoice);
+      } else {
+        alert ("It's a draw, both chose " + humanChoice);
+      }
+      alert ("human " + humanScore + " - cpu " + computerScore);
+    }
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+
+    
+    //console.log(playRound(humanSelection, computerSelection));
+
+    function playGame() {
+
+      for (let i = 0; i > 5; i++) {
+        playRound(humanChoice, computerChoice);
+      }
+      if (humanScore > computerScore) {
+        alert ("You have won!");
+      } else if (humanScore < computerScore) {
+        alert ("You lost. Best luck next time");
+      } else {
+        alert ("It's a draw");
+      }
+    }
+
+
+    console.log(playGame());
+
+
+
+
+    
+    //console.log("Hello, World!")
+  </script>
+</body>
+</html>
