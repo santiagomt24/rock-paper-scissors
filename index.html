@@ -36,45 +36,43 @@
     
     //console.log(getHumanChoice());
 
-
     let humanScore = 0;
     let computerScore = 0;
+
 
   
     function playRound(humanChoice, computerChoice) {
       if ((humanChoice == "rock" && computerChoice == "scissors") || (humanChoice == "paper" && computerChoice == "rock") || (humanChoice == "scissors" && computerChoice == "paper")) {
         humanScore++;
-        alert ("You won! " + humanChoice + " beats " + computerChoice);
+        alert ("You win this round " + humanChoice + " beats " + computerChoice);
       } else if (humanChoice != computerChoice) {
         computerScore++;
-        alert ("You lose! " + computerChoice + " beats " + humanChoice);
+        alert ("You lose this round " + computerChoice + " beats " + humanChoice);
       } else {
         alert ("It's a draw, both chose " + humanChoice);
       }
       alert ("human " + humanScore + " - cpu " + computerScore);
     }
 
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-
-    
-    //console.log(playRound(humanSelection, computerSelection));
 
     function playGame() {
 
-      for (let i = 0; i > 5; i++) {
+      for (let i = 0; i < 5; i++) {
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
       }
+    
       if (humanScore > computerScore) {
-        alert ("You have won!");
+        alert ("You have won! Final Score is human " + humanScore + " - cpu " + computerScore);
       } else if (humanScore < computerScore) {
-        alert ("You lost. Best luck next time");
+        alert ("You lost. Final Score is human " + humanScore + " - cpu " + computerScore + "Best luck next time");
       } else {
-        alert ("It's a draw");
+        alert ("It's a draw. Final Score is human " + humanScore + " - cpu " + computerScore);
       }
     }
 
+   
 
     console.log(playGame());
 
