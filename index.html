@@ -1,86 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href = "style.css">
 </head>
 <body>
-  <script>
-    // Your JavaScript goes here!
-
-    
-    
-    function getComputerChoice() {
-      let result = Math.random();
-      if (result <= 0.33) {
-        return "rock";
-      } else if (result >= 0.66) {
-        return "paper"; 
-      } else {
-        return "scissors";
-      }
-    }
-
-    //console.log(getComputerChoice())
-
-    function getHumanChoice() {
-      let validOptions = ["rock", "paper", "scissors"];
-      let choice = prompt("what's your choice: rock, paper or scissors?");
-      if (choice.toLowerCase () == validOptions[0] || choice.toLowerCase () == validOptions[1] || choice.toLowerCase () == validOptions[2]) {
-        return choice.toLowerCase ();
-      } else {
-        alert ("please chose a valid option");
-      }
-      return getHumanChoice();
-    }
-    
-    //console.log(getHumanChoice());
-
-    let humanScore = 0;
-    let computerScore = 0;
-
-
-  
-    function playRound(humanChoice, computerChoice) {
-      if ((humanChoice == "rock" && computerChoice == "scissors") || (humanChoice == "paper" && computerChoice == "rock") || (humanChoice == "scissors" && computerChoice == "paper")) {
-        humanScore++;
-        alert ("You win this round " + humanChoice + " beats " + computerChoice);
-      } else if (humanChoice != computerChoice) {
-        computerScore++;
-        alert ("You lose this round " + computerChoice + " beats " + humanChoice);
-      } else {
-        alert ("It's a draw, both chose " + humanChoice);
-      }
-      alert ("human " + humanScore + " - cpu " + computerScore);
-    }
-
-
-    function playGame() {
-
-      for (let i = 0; i < 5; i++) {
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-      }
-    
-      if (humanScore > computerScore) {
-        alert ("You have won! Final Score is human " + humanScore + " - cpu " + computerScore);
-      } else if (humanScore < computerScore) {
-        alert ("You lost. Final Score is human " + humanScore + " - cpu " + computerScore + "Best luck next time");
-      } else {
-        alert ("It's a draw. Final Score is human " + humanScore + " - cpu " + computerScore);
-      }
-    }
-
-   
-
-    console.log(playGame());
-
-
-
-
-    
-    //console.log("Hello, World!")
-  </script>
+    <h1>Rock, Paper, Scissors!</h1>
+    <h3>A remake of one of the oldest ways to solve a problem</h3>
+    <h3>Choose wisely:</h3>
+    <div id="container">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <h3 class="count"></h3>
 </body>
 </html>
