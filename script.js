@@ -29,7 +29,7 @@ humanRock.addEventListener("click", () => getHumanChoice("rock"));
 humanPaper.addEventListener("click", () => getHumanChoice("paper"));
 humanScissors.addEventListener("click", () => getHumanChoice("scissors"));
 
-const counter = document.querySelector(".count");
+const counter = document.querySelector(".score");
 
 function getHumanChoice (selection) {
     if (rounds < maxRounds) {
@@ -47,9 +47,7 @@ function getHumanChoice (selection) {
         } else {
             counter.textContent = "Game Over. It was a draw";
         }
-        roundResults.textContent = "Your score is: " 
-        + humanScore + ". Computer score is: " + computerScore;
-
+        roundResults.textContent = "Your score is: " + humanScore + " - Computer score is: " + computerScore;
     }
 }
 
